@@ -13,13 +13,10 @@ class CreateListiniTable extends Migration
      */
     public function up()
     {
-        Schema::create('listini', function (Blueprint $table) {
+        Schema::create('pizze', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('nome_pizza');
-            $table->float('price');
-            $table->boolean('is_celiaca');
-            $table->boolean('is_senza_lattosio');
         });
     }
 
