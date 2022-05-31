@@ -10,6 +10,7 @@
 
 <body>
     <h1>{{ $pizza->nome_pizza }}</h1>
+    <a href="{{route('pizze.edit', $pizza->id)}}">Modifica</a>
 </body>
 
 </html>
