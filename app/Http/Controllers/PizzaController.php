@@ -86,6 +86,12 @@ class PizzaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $pizza = Pizza::findOrFail($id);
+        $data = $request->all();
+        $pizza->update($data);
+
+        return redirect()->route('pizze.show', $pizza->id);
+
     }
 
     /**

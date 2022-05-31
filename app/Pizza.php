@@ -13,5 +13,6 @@ class Pizza extends Model
      * @var string
      */
     protected $table = 'pizze';
+    protected $fillable = ['nome_pizza'];
 
 }
