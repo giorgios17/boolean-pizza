@@ -68,7 +68,16 @@
 </head>
 
 <body>
-    <h1>Benvenuto nella pizzeria di Boolean!</h1>
+    <div>
+        <ul>
+            @foreach ($pizze as $pizza)
+            <li>
+                {{$pizza->nome_pizza}}
+            </li>
+            @endforeach
+        </ul>
+
+    </div>
 </body>
 
 </html>
