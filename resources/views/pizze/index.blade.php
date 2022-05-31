@@ -69,11 +69,13 @@
 
 <body>
     <div>
+        <a href="{{ route('pizze.create') }}">Crea una nuova pizza!</a>
         <ul>
             @foreach ($pizze as $pizza)
-            <li>
-                {{$pizza->nome_pizza}}
-            </li>
+                <li>
+                    {{ $pizza->nome_pizza }}
+                    <a href="{{ route('pizze.show', $pizza->id) }}">Visualizza dettaglio</a>
+                </li>
             @endforeach
         </ul>
 

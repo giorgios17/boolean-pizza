@@ -10,7 +10,13 @@
 
 <body>
     <h1>{{ $pizza->nome_pizza }}</h1>
-    <a href="{{route('pizze.edit', $pizza->id)}}">Modifica</a>
+    <a href="{{ route('pizze.edit', $pizza->id) }}">Modifica</a>
+    <form action="{{ route('pizze.destroy', $pizza->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Cancella Pizza</button>
+    </form>
+    <a href="{{ route('pizze.index') }}">Home</a>
 </body>
 
 </html>
