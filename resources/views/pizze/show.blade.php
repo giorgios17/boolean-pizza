@@ -10,7 +10,20 @@
 
 <body>
     <h1>{{ $pizza->nome_pizza }}</h1>
+    <h1>Ingredienti</h1>
+    @if ($ingredienti->isEmpty())
+    <div>
+        non ci sono ingredienti in questa pizza!
+    </div>
+    @else
+    <ul>
+        @foreach ($ingredienti as $ingrediente)
+        <li>{{$ingrediente->name}} </li>
+        @endforeach
+    </ul>
+    @endif
     <a href="{{ route('pizze.edit', $pizza->id) }}">Modifica</a>
+
     <form action="{{ route('pizze.destroy', $pizza->id) }}" method="POST">
         @csrf
         @method('DELETE')

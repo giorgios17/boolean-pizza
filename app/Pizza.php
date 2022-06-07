@@ -15,4 +15,9 @@ class Pizza extends Model
     protected $table = 'pizze';
     protected $fillable = ['nome_pizza'];
 
+
+    public function ingredienti()
+    {
+        return $this->belongsToMany('App\Ingrediente', 'ingrediente_pizza', 'pizza_id', 'ingrediente_id');
+    }
 }

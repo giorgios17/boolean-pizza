@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ingrediente;
 use Illuminate\Http\Request;
 use App\Pizza;
 
@@ -58,8 +59,8 @@ class PizzaController extends Controller
     {
         //
         $pizza = Pizza::findOrFail($id);
-
-        return view('pizze.show', compact('pizza'));
+        $ingredienti = $pizza->ingredienti;
+        return view('pizze.show', compact('pizza', 'ingredienti'));
     }
 
     /**
@@ -91,7 +92,6 @@ class PizzaController extends Controller
         $pizza->update($data);
 
         return redirect()->route('pizze.show', $pizza->id);
-
     }
 
     /**
@@ -102,7 +102,7 @@ class PizzaController extends Controller
      */
     public function destroy($id)
     {
-        $pizza= Pizza::find($id);
+        $pizza = Pizza::find($id);
         $pizza->delete();
         return redirect()->route('pizze.index');
     }
